@@ -87,7 +87,8 @@ public class PayFortDelegate: NSObject, PKPaymentAuthorizationViewControllerDele
         self.requestData = requestData
         self.viewController = viewController
         
-        let amount = decimal(with: (requestData["amount"] as? String) ?? "0.0")
+        // let amount = decimal(with: (requestData["amount"] as? String) ?? "0.0")
+        let amount = NSDecimalNumber(string: requestData["amount"] as? String ?? "0.0"); 
         
         let paymentRequest = PKPaymentRequest()
         paymentRequest.merchantIdentifier = (requestData["apple_pay_merchant_id"] as? String) ?? "";
